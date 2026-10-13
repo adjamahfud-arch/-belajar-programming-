@@ -1,6 +1,10 @@
 import json
 from datetime import datetime
+
 import validation as ls
+
+NAMA_FILE ="data_.json"
+format_waktu ="%H:%M %d %A %Y"
 
 class Users:
    def __init__(self,waktu,masuk,keluar,uang=0):
@@ -21,10 +25,6 @@ class Users:
        }
    def tambah_data(self,data):
        self.uang += data
-   @staticmethod
-   def waktu():
-       times =datetime.now().strftime("%H:%M %d %A %Y")
-       return times
      
 class Program:
    def __init__(self,file_path):
@@ -74,34 +74,47 @@ class Program:
           return
        dtal =self.data_center[-1]
        print(f"{dtal.masuk:<12} | {dtal.keluar:12} | {dtal.uang}")
+   def kurangi(self,kurang):
+       if self.data_center:
+          data =self.data_center[-1].uang
+          kurangi =data - kurang
+          self.data_center[-1].uang =kurangi
+          self.simpan()
+          
 
 class Waktu:
     @staticmethod
     def timel():
-        times =datetime.now().strftime("%H:%M %d %A %Y")
+        times =datetime.now().strftime(format_waktu)
         return times
    
 #input Program
-sk =Waktu()
-sy =Program("data_.json")
-if __name__=="__main__":
+def main():
+   sk =Waktu()
+   sy =Program(NAMA_FILE)
    while True:
-      msk =ls.masuk()
-      klr =ls.keluar()
-      timep =sk.timel()
-      pilih_2 =ls.tampil()
-      sy.isi(timep,msk,klr)
-      if pilih_2 == "Y":
-         sy.tampilkan()
-      pilihan =ls.pilih()
-      if pilihan =="y":
-         continue
-      elif pilihan =="n":
-           break
-      else:
-         continue
-print("terimakasih (:")
-
+       msk =ls.masuk()
+       klr =ls.keluar()
+       timep =sk.timel()
+       pilih_2 =ls.tampil()
+       sy.isi(timep,msk,klr)
+       if pilih_2 == "Y":
+          sy.tampilkan()
+      
+       pilihlah =ls.pilihan()
+       if pilihlah =="ya":
+          kurangi_ =ls.kurang()
+          sy.kurangi(kurangi_)   
+       pilihan_ =ls.pilih()
+       if pilihan_ =="y":
+          continue
+       elif pilihan_ =="n":
+            break
+       else:
+          continue
+   print("terimakasih (:")
+if __name__ =="__main__":
+   main()
       
       
     

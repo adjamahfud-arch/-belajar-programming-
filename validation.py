@@ -57,10 +57,50 @@ def tampil():
          return ui
        except Exception as l:
            print(f"error{l}")
-      
-         
+def pilihan():
+    while True:
+        try:
+          pilih_ =input("mau mengurangi total:ya/n:").strip().lower()
+          if pilih_ =="":
+             print("pilihan harus di isi!")
+             continue
+          if pilih_.isdigit():
+             print("pilihan harus berupa huruf")
+             continue
+          if  not pilih_ in ["ya","n"]:
+              print("pilihan hanya boleh di isi ya dan n")
+              continue
+          return pilih_
+        except Exception as o:
+            print(f"error:{o}")
+
+def kurang():
+    while True:
+        try:
+          kurang =input("masukan jumlah yang mau di kurang:").strip()
+          if kurang =="":
+             print("pilihan tidak boleh kosong!")
+             continue
+          if  not kurang.isdigit():
+              print(f"{kurang} wajib di isi dengan angka")
+              continue
+          
+          
+          ubl =int(kurang)
+          if ubl <= 0:
+             print("tidak boleh 0")
+             continue
+          return ubl
+        except ValueError:
+            print("kode mengalami error")
+            continue
+        except Exception as d:
+            print(f"error {d}")
+          
+            
+          
 if __name__ =="__main__":
-   tampil()
+   kurang()
   
      
    

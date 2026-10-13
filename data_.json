@@ -46,5 +46,35 @@
         "masuk": 1000,
         "keluar": 0,
         "uang": 1619
+    },
+    {
+        "waktu": "21:11 12 Monday 2026",
+        "masuk": 90,
+        "keluar": 9,
+        "uang": 1709
+    },
+    {
+        "waktu": "21:12 12 Monday 2026",
+        "masuk": 90,
+        "keluar": 8,
+        "uang": 1799
+    },
+    {
+        "waktu": "20:33 13 Tuesday 2026",
+        "masuk": 9,
+        "keluar": 8,
+        "uang": 808
+    },
+    {
+        "waktu": "20:34 13 Tuesday 2026",
+        "masuk": 5,
+        "keluar": 0,
+        "uang": 813
+    },
+    {
+        "waktu": "21:06 13 Tuesday 2026",
+        "masuk": 90,
+        "keluar": 9,
+        "uang": 903
     }
 ]

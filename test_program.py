@@ -1,4 +1,8 @@
 from main_program import Users,Simpan
 import pytest
 
-def
+@pytest.fixture
+def test_data():
+    return (
+      Users(9)
+    )
